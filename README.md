@@ -1,1 +1,4 @@
 # cpp
+This repository it where I upload my homework for Intro to C/C++ course at SUSTech.
+
+Sep 16,2020
