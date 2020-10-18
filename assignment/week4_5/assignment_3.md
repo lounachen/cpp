@@ -8,7 +8,7 @@ For this assignment, I implemented 3 different programs.
 
 The first one(vec_dot_product.cpp) is a calculator that computes the two vectors that the user inputs. It is very straightforwardly formatted for the user and uses dynamic memory. It prevents user from input mistakes such as vector entry mismatch and inputting letters or any other none float types by outputting an error warning and exit the program. 
 
-The second one is the initial code(brute force) I have for Task 2, calculating the dot product of 200M-element vectors. It uses dynamic memory and time measurement to calculate the time needed for the dot product calculation, which is approximately 523ms, the output of which is a float type, suffering from precision issues.
+The second one(vec_dot_product_time.cpp) is the initial code(brute force) I have for Task 2, calculating the dot product of 200M-element vectors. It uses dynamic memory and time measurement to calculate the time needed for the dot product calculation, which is approximately 523ms, the output of which is a float type, suffering from precision issues.
 
 The third one is the improved version of Task 2 for Task 3, by improving the efficiency of the code for Task 2 using compile specification multi-threading calculation with the loop, the code now only takes 84ms to execute the calculation.
 
@@ -20,21 +20,39 @@ The third one also is a test for OpenBLAS, Task 4, the calculation takes about 9
 
 1. Calculation
 
-![image-20201018232336055](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018232336055.png)
+   > `Please input the first vector (e.g. 2.3 4.5 6.7): 2.3 1.6 2.9`
+   >
+   > `Please input the second vector: 1.2 2.9 3.4`
+   >
+   > `The dot product is: 17.26`
 
 2. Input type wrong
 
-   ![image-20201018232511994](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018232511994.png)
+   > `Please input the first vector (e.g. 2.3 4.5 6.7): 1 2 3`
+   >
+   > `Please input the second vector: 2 a 3`
+   >
+   > `Error: input type wrong`
 
-![image-20201018232546711](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018232546711.png)
+   
+
+   > `Please input the first vector (e.g. 2.3 4.5 6.7): 1 4 a`
+   >
+   > `Error: input type wrong`
 
 3. Vector entry mismatch
 
-   ![image-20201018232704852](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018232704852.png)
+   > `Please input the first vector (e.g. 2.3 4.5 6.7): 1 2 3.2 4`
+   >
+   > `Please input the second vector: 1 2 3`
+   >
+   > `Error: vector size mismatch`
 
 #### The second program: brute force 200M calculation
 
-![image-20201018232850218](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018232850218.png)
+> `The dot product is: 1. 07374e+09`
+>
+> `Calculation took: 551ms.`
 
 #### The third program(part I)
 
@@ -68,15 +86,17 @@ This technique speeds up the calculation quite a bit.
 
 Here's the compile specification and the one of the OpenBLAS calculation time:
 
-
-
-![image-20201018234751926](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018234751926.png)
-
-![image-20201018234848571](C:\Users\longq\AppData\Roaming\Typora\typora-user-images\image-20201018234848571.png)
-
+> `PS C:\cpp\assignment\week4_5> g++ vec_dot_product_time_2.cpp -I C:/OpenBlas/OpenBLAS-0.3.10/Temp/include/ -L C:/OpenBlas/OpenBLAS-0.3.10/Temp/lib -lopenblas -lpthread -lgfortran`
+>
+> `PS C:\cpp\assignment\week4_5> ./a`
 
 
 
+> `The dot product is: 6.67534e+09`
+>
+> `The dot product is: 4.29497e+09`
+>
+> `Calculation took: 146ms.`
 
 ## Part 3. Difficulties and Solutions
 
