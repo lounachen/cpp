@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "okay i dont know",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-ffast-math",
+                "-Ofast",
+                "-march=native",
+                "-funroll-loops",
+                "-g",
+                "-o",
+                "${fileBasenameNoExtension}.exe",
+                "${fileBasename}"
+            ],
+            "options":{
+                "cwd": "C:/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceRoot}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+        }
+    ]
+}
