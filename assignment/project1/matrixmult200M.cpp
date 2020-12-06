@@ -75,8 +75,8 @@ void destroy_matrix(float** &mat, int r)
         for (int i=0;i<r;i++)
         {
             delete[] mat[i];
-        delete[] mat;
-        mat = nullptr;
+            delete[] mat;
+            mat = nullptr;
         }
     }
 }
